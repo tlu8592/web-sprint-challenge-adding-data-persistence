@@ -2,7 +2,7 @@
 const db = require('../../data/dbConfig');
 
 function getTasks() {
-    return db('tasks').truncate();
+    return db('tasks');
 }
 
 function getTaskById(task_id) {
