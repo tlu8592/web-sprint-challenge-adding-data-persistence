@@ -22,10 +22,10 @@ router.post('/', async (req, res) => {
             res.status(400).json({
                 message: "project id missing"
             });
-        } else if (typeof project_id !== number) {
-            res.status(400).json({
-                message: "invalid project id"
-            });
+        // } else if (typeof project_id !== "number") {
+        //     res.status(400).json({
+        //         message: "invalid project id"
+        //     });
         } else {
             const newTask = await Task.addNewTask({
                 task_description: task_description,
@@ -33,11 +33,13 @@ router.post('/', async (req, res) => {
                 task_completed: task_completed,
                 project_id: project_id
             });
-
+            console.log("Bob", newTask);
+            res.status(201).json(newTask);
         }
     } catch (err) {
         res.status(500).json({
-            message: "error creating task"
+            // message: "error creating task"
+            message: err.message
         })
     }
 })
