@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
         } else {
             newProject.project_completed = true
         }
-        res.status(200).json(newProject);
+        res.status(201).json(newProject);
     } catch (err) {
         res.status(500).json({
             message: "error adding project"
