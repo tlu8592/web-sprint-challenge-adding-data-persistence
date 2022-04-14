@@ -15,7 +15,6 @@ function getProjectById(project_id) {
 async function addNewProject(project) {
     const projectId = await db('projects').insert(project)
     return db('projects').where('project_id', projectId).first()
-        // .then(([project_id]) => getProjectById(project_id));
 }
 
 module.exports = {
