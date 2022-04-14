@@ -7,6 +7,13 @@ router.get('/', async (req, res) => {
     if (!tasks) {
         return [];
     } else {
+        tasks.forEach(task => {
+            if (task.task_completed === 0) {
+                task.task_completed = false
+            } else {
+                task.task_completed = true
+            }
+        })
         console.log(tasks);
         res.json(tasks);
     }
